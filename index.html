@@ -91,7 +91,7 @@
     </section>
 
     <div class="audio-container">
-        <audio controls autoplay id="myAudio">
+        <audio controls autoplay loop id="myAudio">
             <source src="womp.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
@@ -103,6 +103,15 @@
 
     <script>
         document.getElementById("myAudio").volume = 0.25; 
+        document.addEventListener('DOMContentLoaded', function () {
+            var myAudio = document.getElementById('myAudio');
+            myAudio.muted = true;
+
+            document.addEventListener('click', function () {
+                myAudio.muted = false;
+                myAudio.play();
+            });
+        });
     </script>
 </body>
 </html>
